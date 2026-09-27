@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: vera-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: ANTHROPIC_MODEL
+        value: claude-sonnet-4-6
+      - key: VERA_TEAM_NAME
+        value: Team Sarthak
+      - key: VERA_TEAM_MEMBERS
+        value: Sarthak Singh Meena
+      - key: VERA_CONTACT_EMAIL
+        sync: false
